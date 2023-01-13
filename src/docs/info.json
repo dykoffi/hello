@@ -1,0 +1,70 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "hello",
+        "version": "1.0.0",
+        "contact": {
+            "email": "koffiedy@gmail.com",
+            "name": "KOFFI Edy",
+            "url": "https://www.linkedin.com/in/edy-koffi-948494192/"
+        }
+    },
+    "definitions": {},
+    "inputs": {},
+    "additionnalsInputs": {},
+    "components": {
+        "schemas": {},
+        "responses": {
+            "ExampleError": {
+                "content": {
+                    "schema": {
+                        "type": "object",
+                        "required": [
+                            "message",
+                            "error"
+                        ],
+                        "properties": {
+                            "error": {
+                                "type": "string"
+                            },
+                            "message": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "UnauthorizedError": {
+                "description": "UnauthorizedError",
+                "content": {
+                    "application/json": {
+                        "$ref": "#/components/responses/ExampleError/content"
+                    }
+                }
+            },
+            "InternalError": {
+                "description": "InternalError",
+                "content": {
+                    "application/json": {
+                        "$ref": "#/components/responses/ExampleError/content"
+                    }
+                }
+            },
+            "NotFoundError": {
+                "description": "NotFoundError",
+                "content": {
+                    "application/json": {
+                        "$ref": "#/components/responses/ExampleError/content"
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "ApiKeyAuth": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "x-access-token"
+            }
+        }
+    }
+}

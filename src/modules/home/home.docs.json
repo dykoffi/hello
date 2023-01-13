@@ -1,0 +1,123 @@
+{
+    "/": {
+        "get": {
+            "operationId": "getTest",
+            "tags": [
+                "Home"
+            ],
+            "security": [],
+            "summary": "Test API endpoint",
+            "responses": {
+                "200": {
+                    "description": "Test ok",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "version": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "message": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "500": {
+                    "$ref": "#/components/responses/InternalError"
+                }
+            }
+        }
+    },
+    "/logs?from={from}&until={until}&levels={levels}&limit={limit}&fields={fields}": {
+        "get": {
+            "operationId": "getLogs",
+            "tags": [
+                "Home"
+            ],
+            "security": [
+                {
+                    "ApiKeyAuth": []
+                }
+            ],
+            "summary": "Test Log API request",
+            "responses": {
+                "200": {
+                    "description": "Log ok",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "level": {
+                                        "type": "string"
+                                    },
+                                    "message": {
+                                        "type": "string"
+                                    },
+                                    "timestamp": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "500": {
+                    "$ref": "#/components/responses/InternalError"
+                }
+            }
+        },
+        "parameters": [
+            {
+                "in": "path",
+                "name": "from",
+                "required": true,
+                "schema": {
+                    "type": "date"
+                }
+            },
+            {
+                "in": "path",
+                "name": "until",
+                "required": true,
+                "schema": {
+                    "type": "date"
+                }
+            },
+            {
+                "in": "path",
+                "name": "limit",
+                "required": false,
+                "schema": {
+                    "type": "integer"
+                }
+            },
+            {
+                "in": "path",
+                "name": "levels",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            {
+                "in": "path",
+                "name": "fields",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            }
+        ]
+    }
+}

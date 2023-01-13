@@ -1,0 +1,92 @@
+{
+    "name": "hello",
+    "version": "1.0.0",
+    "main": "./index.ts",
+    "private": false,
+    "scripts": {
+        "build": "cqx build",
+        "start:stack": "docker compose up -d",
+        "start:dev": "NODE_ENV=local nodemon ./index.ts",
+        "start:debug": "NODE_ENV=local DEBUG=* nodemon ./index.ts",
+        "test": "NODE_ENV=test jest --coverage",
+        "update": "prisma migrate dev && cqx update",
+        "version": "cqx version",
+        "docker:build": "cqx build && DOCKER_BUILDKIT=1 docker build -t dykoffi/hello ./build && rm -rdf build"
+    },
+    "dependencies": {
+        "@prisma/client": "4.3.0",
+        "class-transformer": "^0.5.1",
+        "class-validator": "^0.13.2",
+        "compression": "^1.7.4",
+        "cors": "^2.8.5",
+        "cqx-secure": "^1.8.1",
+        "dotenv": "^16.0.0",
+        "express": "^4.18.2",
+        "flat": "^5.0.2",
+        "helmet": "^6.0.1",
+        "jsonwebtoken": "^8.5.1",
+        "morgan": "^1.10.0",
+        "prom-client": "^14.1.0",
+        "serve-favicon": "^2.5.0",
+        "winston": "^3.8.2",
+        "winston-daily-rotate-file": "^4.7.1"
+    },
+    "devDependencies": {
+        "@types/compression": "^1.7.2",
+        "@types/cors": "^2.8.12",
+        "@types/express": "^4.17.13",
+        "@types/flat": "^5.0.2",
+        "@types/jest": "^27.4.1",
+        "@types/jsonwebtoken": "^8.5.9",
+        "@types/morgan": "^1.9.3",
+        "@types/node": "^17.0.24",
+        "@types/on-finished": "^2.3.1",
+        "@types/serve-favicon": "^2.5.3",
+        "@types/swagger-ui-express": "^4.1.3",
+        "cqx": "^1.13.2",
+        "jest": "^28.1.0",
+        "prisma": "4.3.0",
+        "prisma-json-schema-generator": "^2.0.11",
+        "supertest": "^6.2.3",
+        "ts-jest": "^28.0.1",
+        "ts-loader": "^9.3.0",
+        "ts-node": "^10.7.0",
+        "typescript": "^4.6.4",
+        "webpack": "^5.72.0"
+    },
+    "jest": {
+        "moduleFileExtensions": [
+            "js",
+            "json",
+            "ts"
+        ],
+        "rootDir": ".",
+        "roots": [
+            "./src/",
+            "./tests/"
+        ],
+        "testRegex": ".*\\.test\\.ts$",
+        "transform": {
+            "^.+\\.(t|j)s$": "ts-jest"
+        },
+        "collectCoverageFrom": [
+            "**/*.(t|j)s"
+        ],
+        "coverageDirectory": "./coverage",
+        "testEnvironment": "node"
+    },
+    "author": {
+        "email": "koffiedy@gmail.com",
+        "name": "KOFFI Edy",
+        "url": "https://www.linkedin.com/in/edy-koffi-948494192/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/author/hello.git"
+    },
+    "bugs": {
+        "url": "https://github.com/author/hello/issues"
+    },
+    "homepage": "git+https://github.com/author/hello#readme",
+    "license": "MIT"
+}

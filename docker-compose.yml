@@ -1,0 +1,18 @@
+version: "3.9" # optional since v1.27.0
+services:
+  hello_db_dev:
+    image: postgres:14-alpine
+    container_name: hello_db_dev
+    environment:
+      - POSTGRES_USER=hello_user
+      - POSTGRES_DB=hello_db_dev
+      - POSTGRES_PASSWORD=3045
+    ports:
+      - 12535:5432
+    volumes:
+      - hello_vol_dev:/var/lib/postgresql/data
+
+
+volumes:
+  hello_vol_dev:
+    driver: local
