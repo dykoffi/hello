@@ -1,4 +1,3 @@
-
 # Moust documentation for begining
 
 ### Prerequises
@@ -27,7 +26,7 @@
 
 ### For Begining
 
-1. Your dev database connection is define in **`.env`** file
+1. Your dev database connection is define in `.env` file
 2. Use ``yarn start:stack`` to run all stack the project needs to run (like database)
 3. Define your model in **prisma/schema.prisma**
 4. Use `yarn update` to update API and database structure following your model in schema.prisma file
@@ -39,5 +38,5 @@
 2. Define the main branch `git branch -M main`
 3. Add files in `git add .`
 4. Commit your code by using `git commit -am "First commit"`
-5. Create git repository `gh repo create moust -r origin --public --push`
+5. Create git repository `gh repo create moust -s . -r origin --public --push`
 6. If you wnat you open the repository in the browser `gh browse`
